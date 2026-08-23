@@ -10,11 +10,10 @@
     <div id="app">
         <h1>Latin Letter Generator</h1>
         
-        <div class="letterBox">
-            <img class="side" :src=side.path>
-            <img class="bottom" :src=bottom.path>
-            <img class="top" :src=top.path>
-        </div>
+        <select>
+            <option>Quadrado</option>
+            <option>DNA</option>
+        </select>
     </div>
 
     <script>
@@ -29,13 +28,8 @@
                 const knot = proportions[0];
 
                 return {
-                    tops,
-                    bottoms,
-                    sides,
-                    top,
-                    bottom,
-                    side,
-                    getRandomElement
+                    proportions,
+                    dna
                 }
             }
         }).mount('#app');
