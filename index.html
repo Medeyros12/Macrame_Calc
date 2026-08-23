@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Latin Letter Generator</h1>
+        
+        <div class="letterBox">
+            <img class="side" :src=side.path>
+            <img class="bottom" :src=bottom.path>
+            <img class="top" :src=top.path>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue;
+
+        createApp({
+            setup() {
+                const tops = [
+                    { name: "blank", path: 'assets/letter_elements/Moldura (5).png' },
+                    { name: "top loop", path: 'assets/letter_elements/Moldura (2).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (6).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (7).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (14).png' }
+                ];
+                const bottoms = [
+                    { name: "blank", path: 'assets/letter_elements/Moldura (5).png' },
+                    { name: "base line", path: 'assets/letter_elements/Moldura (1).png' },
+                    { name: "bottom diagonal", path: 'assets/letter_elements/Moldura (4).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (13).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (15).png' }
+                ];
+                const sides = [
+                    { name: "blank", path: 'assets/letter_elements/Moldura (5).png' },
+                    { name: "left line", path: 'assets/letter_elements/Moldura.png' },
+                    { name: "top loop", path: 'assets/letter_elements/Moldura (8).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (9).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (10).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (11).png' },
+                    { name: "blank", path: 'assets/letter_elements/Moldura (12).png' }
+                ];
+                const top = tops[Math.floor(Math.random() * tops.length)];
+                const bottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+                const side = sides[Math.floor(Math.random() * sides.length)];
+
+                function getRandomElement() {
+                    elmntx.value = elmnts[Math.floor(Math.random() * elmnts.length)];;
+                };
+
+                return {
+                    tops,
+                    bottoms,
+                    sides,
+                    top,
+                    bottom,
+                    side,
+                    getRandomElement
+                }
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>
